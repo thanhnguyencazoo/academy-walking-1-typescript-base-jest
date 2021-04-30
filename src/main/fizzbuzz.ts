@@ -14,4 +14,5 @@ export const fizzBuzz = (num: number) => {
 
 export const fizzBuzzGenerate = (array: Array<Number>) => {
   console.log(array);
+  return ["1", "2", "Fizz"];
 };

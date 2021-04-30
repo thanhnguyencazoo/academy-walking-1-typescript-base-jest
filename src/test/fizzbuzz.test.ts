@@ -34,6 +34,10 @@ describe("fizz buzz", () => {
 describe("fizzbuzz array", () => {
   it("should return fizz when a number in the array is multiple of 3", () => {
     const array = [1, 2, 3];
-    expect(fizzBuzzGenerate(array)).toBe(["1", "2", "Fizz"]);
+    expect(fizzBuzzGenerate(array)).toStrictEqual(["1", "2", "Fizz"]);
+  });
+  it("should return buzz when a number in the array is multiple of 5", () => {
+    const array = [4, 5];
+    expect(fizzBuzzGenerate(array)).toStrictEqual(["4", "Buzz"]);
   });
 });
