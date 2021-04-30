@@ -2,11 +2,11 @@ import { fizzBuzz } from "../main/fizzbuzz";
 
 describe("fizz buzz", () => {
   it("it should return fizz when the number is 3", () => {
-    const array = [3];
-    expect(fizzBuzz(array)).toStrictEqual(["Fizz"]);
+    const number = 3;
+    expect(fizzBuzz(number)).toStrictEqual("Fizz");
   });
-  it("it should return fizz when the number is 6", () => {
-    const array = [6];
-    expect(fizzBuzz(array)).toStrictEqual(["Fizz"]);
+  it("it should return the number itself when it is not a multiple of 3", () => {
+    const number = 4;
+    expect(fizzBuzz(number)).toStrictEqual("4");
   });
 });

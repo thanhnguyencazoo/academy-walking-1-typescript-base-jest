@@ -1,4 +1,4 @@
-export const fizzBuzz = (array: Array<Number>) => {
-  console.log(array);
-  return ["Fizz"];
+export const fizzBuzz = (num: number) => {
+  console.log(num);
+  return "Fizz";
 };
