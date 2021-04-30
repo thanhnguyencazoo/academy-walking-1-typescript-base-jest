@@ -1,4 +1,4 @@
-import { fizzBuzz } from "../main/fizzbuzz";
+import { fizzBuzz, fizzBuzzGenerate } from "../main/fizzbuzz";
 
 describe("fizz buzz", () => {
   it("it should return fizz when the number is 3", () => {
@@ -28,5 +28,12 @@ describe("fizz buzz", () => {
   it("it should return fizzbuzz when the number is 30", () => {
     const number = 30;
     expect(fizzBuzz(number)).toStrictEqual("FizzBuzz");
+  });
+});
+
+describe("fizzbuzz array", () => {
+  it("should return fizz when a number in the array is multiple of 3", () => {
+    const array = [1, 2, 3];
+    expect(fizzBuzzGenerate(array)).toBe(["1", "2", "Fizz"]);
   });
 });
