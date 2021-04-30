@@ -5,6 +5,10 @@ describe("fizz buzz", () => {
     const number = 3;
     expect(fizzBuzz(number)).toStrictEqual("Fizz");
   });
+  it("it should return fizz when the number is 6", () => {
+    const number = 6;
+    expect(fizzBuzz(number)).toStrictEqual("Fizz");
+  });
   it("it should return buzz when the number is 5", () => {
     const number = 5;
     expect(fizzBuzz(number)).toStrictEqual("Buzz");

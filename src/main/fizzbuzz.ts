@@ -5,5 +5,8 @@ export const fizzBuzz = (num: number) => {
   if (num === 5) {
     return "Buzz";
   }
+  if (num === 15) {
+    return "FizzBuzz";
+  }
   return num.toString();
 };
