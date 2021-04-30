@@ -1,4 +1,6 @@
 export const fizzBuzz = (num: number) => {
-  console.log(num);
-  return "Fizz";
+  if (num === 3) {
+    return "Fizz";
+  }
+  return num.toString()
 };
