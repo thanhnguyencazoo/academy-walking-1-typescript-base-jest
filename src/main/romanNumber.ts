@@ -1,3 +1,4 @@
 export const romanize = (input: number) => {
-  return "I";
+  if (input === 1) return "I";
+  if (input === 2) return "II";
 };
