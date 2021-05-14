@@ -1,14 +1,15 @@
 import { romanize } from "../main/romanNumber";
+
 describe("roman number", () => {
-  it("return I when the number is 1", () => {
-    expect(romanize(1)).toBe("I");
-  });
-
-  it("return II when the number is 2", () => {
-    expect(romanize(2)).toBe("II");
-  });
-
-  it("return III when the number is 3", () => {
-    expect(romanize(3)).toBe("III");
-  });
+  it.each`
+    integer | romanNumber
+    ${0}    | ${""}
+    ${1}    | ${"I"}
+    ${2}    | ${"II"}
+  `(
+    "should return a '$romanNumber' when the number is '$integer'",
+    ({ integer, romanNumber }) => {
+      expect(romanize(integer)).toBe(romanNumber);
+    }
+  );
 });

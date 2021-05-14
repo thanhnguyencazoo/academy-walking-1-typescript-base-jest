@@ -1,4 +1,4 @@
 export const romanize = (input: number) => {
-  if (input === 1) return "I";
-  if (input === 2) return "II";
+  let roman = ["", "I"];
+  return roman[input];
 };
