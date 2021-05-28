@@ -1,4 +1,5 @@
 import { Game } from "./Game";
+import { Blank } from "./Board";
 
 describe("Game", () => {
   it("player X should go first", () => {
@@ -45,14 +46,21 @@ describe("Game", () => {
     expect(() => game.play(0, 2)).toThrow(new Error(error));
   });
 
-  it("player wins when getting 3 in a row horizontally", () => {
-    const game = new Game();
-    game.play(0, 0);
-    game.play(2, 2);
-    game.play(0, 1);
-    game.play(2, 1);
-    // game.play(0, 2);
-    const status = game.play(0, 2);
-    expect(status).toEqual({ state: "finished", winner: "X" });
+  describe('game status', () => {
+    it("player wins when getting 3 in a row horizontally", () => {
+      const game = new Game();
+      game.play(0, 0);
+      game.play(2, 2);
+      game.play(0, 1);
+      game.play(2, 1);
+      const status = game.play(0, 2);
+      expect(status).toEqual({ state: "finished", winner: "X" });
+    });
+
+    it("returns the status of the game after playing", () => {
+      const game = new Game();
+      const status = game.play(0, 2);
+      expect(status).toEqual({ state: "in progress", winner: Blank.Blank });
+    });
   });
 });
