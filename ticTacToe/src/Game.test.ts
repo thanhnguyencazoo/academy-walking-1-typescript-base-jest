@@ -45,14 +45,14 @@ describe("Game", () => {
     expect(() => game.play(0, 2)).toThrow(new Error(error));
   });
 
-  // it.skip("player wins when getting 3 in a row horizontally", () => {
-  //   const game = new Game();
-  //   game.play(0, 0);
-  //   game.play(2, 2);
-  //   game.play(0, 1);
-  //   game.play(2, 1);
-  //   game.play(0, 2);
-  //
-  //   expect(game.checkWinner()).toEqual('X');
-  // });
+  it("player wins when getting 3 in a row horizontally", () => {
+    const game = new Game();
+    game.play(0, 0);
+    game.play(2, 2);
+    game.play(0, 1);
+    game.play(2, 1);
+    // game.play(0, 2);
+    const status = game.play(0, 2);
+    expect(status).toEqual({ state: "finished", winner: "X" });
+  });
 });
