@@ -1,22 +1,26 @@
+import { Board } from "./Board";
+
+export enum Players {
+  PlayerOne = 'X',
+  PlayerTwo = "O",
+}
+
 export class Game {
-  private player = "X";
+  private player = Players.PlayerOne;
+  private gameBoard: Board = new Board()
 
   play(number1: number, number2: number) {
-    this.gameBoard[number1][number2] = this.player;
+    this.gameBoard.play({x: number1, y: number2}, this.player)
     this.changePlayer();
   }
 
-  private gameBoard = [
-    ["", "", ""],
-    ["", "", ""],
-    ["", "", ""],
-  ];
-
   board() {
-    return this.gameBoard;
+    return this.gameBoard.printBoard();
   }
 
   private changePlayer() {
-    this.player === "O" ? (this.player = "X") : (this.player = "O");
+    this.player === Players.PlayerTwo
+      ? (this.player = Players.PlayerOne)
+      : (this.player = Players.PlayerTwo);
   }
 }
