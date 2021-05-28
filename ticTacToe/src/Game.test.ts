@@ -23,7 +23,7 @@ describe("Game", () => {
     ]);
   });
 
-  it("player O should go second", () => {
+  it("player X should go third", () => {
     const game = new Game();
     game.play(0, 0);
     game.play(0, 1);
@@ -34,5 +34,14 @@ describe("Game", () => {
       ["", "", ""],
       ["", "", ""],
     ]);
+  });
+
+  it("play O can not go to where player X stay", () => {
+    const game = new Game();
+    const error = "can't go to X location";
+    game.play(0, 0);
+    game.play(0, 1);
+    game.play(0, 2);
+    expect(() => game.play(0, 2)).toThrow(new Error(error));
   });
 });

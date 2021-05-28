@@ -1,9 +1,9 @@
 export class Game {
-  private player = 'X';
+  private player = "X";
 
   play(number1: number, number2: number) {
-    this.gameBoard[number1][number2] = this.player
-    this.changePlayer()
+    this.gameBoard[number1][number2] = this.player;
+    this.changePlayer();
   }
 
   private gameBoard = [
@@ -17,6 +17,6 @@ export class Game {
   }
 
   private changePlayer() {
-    this.player = 'O'
+    this.player === "O" ? (this.player = "X") : (this.player = "O");
   }
 }
