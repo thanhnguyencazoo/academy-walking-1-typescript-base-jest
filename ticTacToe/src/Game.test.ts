@@ -22,4 +22,17 @@ describe("Game", () => {
       ["", "", ""],
     ]);
   });
+
+  it("player O should go second", () => {
+    const game = new Game();
+    game.play(0, 0);
+    game.play(0, 1);
+    game.play(0, 2);
+
+    expect(game.board()).toEqual([
+      ["X", "O", "X"],
+      ["", "", ""],
+      ["", "", ""],
+    ]);
+  });
 });

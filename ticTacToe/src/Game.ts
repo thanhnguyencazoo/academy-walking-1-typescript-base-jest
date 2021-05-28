@@ -1,13 +1,22 @@
 export class Game {
+  private player = 'X';
+
   play(number1: number, number2: number) {
-    console.log(number1, number2);
+    this.gameBoard[number1][number2] = this.player
+    this.changePlayer()
   }
+
+  private gameBoard = [
+    ["", "", ""],
+    ["", "", ""],
+    ["", "", ""],
+  ];
+
   board() {
-    const board = [
-      ["X", "", ""],
-      ["", "", ""],
-      ["", "", ""],
-    ];
-    return board;
+    return this.gameBoard;
+  }
+
+  private changePlayer() {
+    this.player = 'O'
   }
 }
