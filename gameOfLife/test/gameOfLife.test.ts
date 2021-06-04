@@ -1,9 +1,4 @@
-import {
-  board,
-  GameOfLifeBoard,
-  nextGen,
-  checkCellItem,
-} from "../main/gameOfLife";
+import { board, GameOfLifeBoard, checkCellItem } from "../main/gameOfLife";
 
 describe("game of life", () => {
   it("create the board", () => {
@@ -23,17 +18,17 @@ describe("game of life", () => {
         [false, true, false],
       ];
 
-      expect(checkCellItem({x: 1, y:1}, board)).toBe(true);
+      expect(checkCellItem({ x: 1, y: 1 }, board)).toBe(true);
     });
 
-    describe('when a cell is alive', () => {
+    describe("when a cell is alive", () => {
       it("should return false if it has 1 neighbour", () => {
         const board = [
           [false, false, false],
           [true, true, false],
           [false, false, false],
         ];
-        expect(checkCellItem({x: 1, y:1}, board)).toBe(false);
+        expect(checkCellItem({ x: 1, y: 1 }, board)).toBe(false);
       });
 
       it("should return false if it has no neighbours", () => {
@@ -42,7 +37,7 @@ describe("game of life", () => {
           [false, true, false],
           [false, false, false],
         ];
-        expect(checkCellItem({x: 1, y:1}, board)).toBe(false);
+        expect(checkCellItem({ x: 1, y: 1 }, board)).toBe(false);
       });
 
       it("should return false if it has more than 3 neighbours", () => {
@@ -51,7 +46,43 @@ describe("game of life", () => {
           [true, true, true],
           [false, true, false],
         ];
-        expect(checkCellItem({x: 1, y:1}, board)).toBe(false);
+        expect(checkCellItem({ x: 1, y: 1 }, board)).toBe(false);
+      });
+
+      it("should return true if it has 3 neighbours", () => {
+        const board = [
+          [false, true, false],
+          [true, true, false],
+          [false, true, false],
+        ];
+        expect(checkCellItem({ x: 1, y: 1 }, board)).toBe(true);
+      });
+
+      it("should return true if it has 2 neighbours", () => {
+        const board = [
+          [false, false, false],
+          [true, true, false],
+          [false, true, false],
+        ];
+        expect(checkCellItem({ x: 1, y: 1 }, board)).toBe(true);
+      });
+
+      it("should become true if it has 3 neighbours", () => {
+        const board = [
+          [false, true, false],
+          [true, false, false],
+          [false, true, false],
+        ];
+        expect(checkCellItem({ x: 1, y: 1 }, board)).toBe(true);
+      });
+
+      it("should stay false if it has 2 neighbours", () => {
+        const board = [
+          [false, false, false],
+          [true, false, false],
+          [false, true, false],
+        ];
+        expect(checkCellItem({ x: 1, y: 1 }, board)).toBe(false);
       });
     });
   });
