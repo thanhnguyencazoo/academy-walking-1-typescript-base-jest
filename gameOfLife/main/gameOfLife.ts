@@ -11,11 +11,15 @@ type CellCoordinates = { x: number; y: number };
 export type GameOfLifeBoard = Cell[][];
 
 export const nextGen = (board: GameOfLifeBoard) => {
-  return [
-    [false, false, false],
-    [false, false, false],
-    [false, false, false],
-  ];
+  const nextBoard = board.map((row, rowIndex) =>
+    row.map((cell, cellIndex) => {
+      console.log("ROWINDEX", rowIndex);
+      console.log("CELLINDEX", cellIndex);
+
+      return checkCellItem({ x: rowIndex, y: cellIndex }, board);
+    })
+  );
+  return nextBoard;
 };
 
 function countAliveNeighbours(board: Cell[][], x: number, y: number) {
@@ -43,7 +47,7 @@ export const checkCellItem = (
   { x, y }: CellCoordinates,
   board: GameOfLifeBoard
 ) => {
-  const cell = board[x][y]
+  const cell = board[x][y];
   const aliveNeighbours = countAliveNeighbours(board, x, y);
 
   if (cell) {
