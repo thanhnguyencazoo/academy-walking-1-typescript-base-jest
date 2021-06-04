@@ -43,9 +43,15 @@ export const checkCellItem = (
   { x, y }: CellCoordinates,
   board: GameOfLifeBoard
 ) => {
+  const cell = board[x][y]
   const aliveNeighbours = countAliveNeighbours(board, x, y);
-  if (aliveNeighbours > 3) return false;
 
-  if (aliveNeighbours >= 2) return true;
-  return false;
+  if (cell) {
+    if (aliveNeighbours > 3) return false;
+    return aliveNeighbours >= 2;
+  }
+
+  if (!cell) {
+    return aliveNeighbours === 3;
+  }
 };
