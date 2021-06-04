@@ -1,5 +1,5 @@
 module.exports = {
-  roots: ["<rootDir>/ticTacToe"],
+  roots: ["<rootDir>/gameOfLife"],
   preset: "ts-jest",
   collectCoverage: true,
   collectCoverageFrom: [
